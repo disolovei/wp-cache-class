@@ -1,5 +1,5 @@
 <?php
-class VLNSK_Cache() {
+class VLNSK_Cache {
 
     protected $data = array();
 
@@ -15,7 +15,7 @@ class VLNSK_Cache() {
 
     private function __construct() {}
 
-    public function set( $key, $value, $group = '', $overrewrite = true ) {
+    public function add( $key, $value, $group = '', $overrewrite = true ) {
         if ( $this->isset( $key, $group ) && ! $overrewrite ) {
             return;
         }
@@ -52,3 +52,5 @@ class VLNSK_Cache() {
     }
 
 }
+
+$GLOBALS['VLNSK_Cache'] = VLNSK_Cache::instance();
